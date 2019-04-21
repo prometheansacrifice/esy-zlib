@@ -13,10 +13,14 @@
         "val": "-L#{self.lib} $LDFLAGS"
       }
     },
+    "buildEnv": {
+      "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }"
+    },
     "buildsInSource": true,
     "build": [
-      "./configure --prefix #{self.install}",
-      "make"
+      ["bash", "-c", "#{os == 'windows' ? './configure --prefix=$cur__install --uname=cygwin': './configure --prefix=$cur__install' }"],
+      "make",
+      "make test"
     ],
     "install": [
       "make install"
