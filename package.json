@@ -11,6 +11,12 @@
       "LDFLAGS": {
         "scope": "global",
         "val": "-L#{self.lib} $LDFLAGS"
+      },
+      "exportedEnv": {
+        "PKG_CONFIG_PATH": {
+          "scope": "global",
+          "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH }"
+        }
       }
     },
     "buildEnv": {
