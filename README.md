@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/prometheansacrifice/esy-packages/_apis/build/status/esy-packages.esy-zlib?branchName=master)](https://dev.azure.com/prometheansacrifice/esy-packages/_build/latest?definitionId=41&branchName=master)
+
 ZLIB DATA COMPRESSION LIBRARY
 
 zlib 1.2.11 is a general purpose data compression library.  All the code is
