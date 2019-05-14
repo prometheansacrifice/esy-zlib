@@ -10,7 +10,7 @@
       },
       "LDFLAGS": {
         "scope": "global",
-        "val": "-L#{self.lib} $LDFLAGS"
+        "val": "-L#{self.lib} -lz $LDFLAGS"
       },
       "PKG_CONFIG_PATH": {
         "scope": "global",
