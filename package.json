@@ -26,7 +26,7 @@
     },
     "buildsInSource": true,
     "build": [
-      ["bash", "-c", "./configure --with-pic --prefix=$cur__install #{os == 'windows' ? '--uname=cygwin' : ''}"],
+      ["bash", "-c", "./configure -fPIC --prefix=$cur__install #{os == 'windows' ? '--uname=cygwin' : ''}"],
       "make",
       "make test"
     ],
