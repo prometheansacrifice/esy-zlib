@@ -15,6 +15,10 @@
       "PKG_CONFIG_PATH": {
         "scope": "global",
         "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH }"
+      },
+      "Z_LIB_PATH": {
+        "val": "#{self.lib}",
+        "scope": "global"
       }
     },
     "buildEnv": {
@@ -22,7 +26,7 @@
     },
     "buildsInSource": true,
     "build": [
-      ["bash", "-c", "#{os == 'windows' ? './configure --prefix=$cur__install --uname=cygwin': './configure --prefix=$cur__install' }"],
+      ["bash", "-c", "#{os == 'windows' ? './configure --with-pic --prefix=$cur__install --uname=cygwin': './configure --prefix=$cur__install' }"],
       "make",
       "make test"
     ],
