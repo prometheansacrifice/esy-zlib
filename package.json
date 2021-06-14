@@ -22,11 +22,16 @@
       }
     },
     "buildEnv": {
-      "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }"
+      "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }",
+      "CFLAGS": "-fPIC"
     },
     "buildsInSource": true,
     "build": [
-      ["bash", "-c", "./configure -fPIC --prefix=$cur__install #{os == 'windows' ? '--uname=cygwin' : ''}"],
+      [
+        "bash",
+        "-c",
+        "./configure --prefix=$cur__install #{os == 'windows' ? '--uname=cygwin' : ''}"
+      ],
       "make",
       "make test"
     ],
