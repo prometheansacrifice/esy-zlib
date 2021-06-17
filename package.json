@@ -23,7 +23,7 @@
     },
     "buildEnv": {
       "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }",
-      "CFLAGS": "-fPIC"
+      "CFLAGS": "-fPIC -O2"
     },
     "buildsInSource": true,
     "build": [
