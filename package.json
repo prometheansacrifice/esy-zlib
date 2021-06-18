@@ -15,14 +15,23 @@
       "PKG_CONFIG_PATH": {
         "scope": "global",
         "val": "#{self.lib / 'pkgconfig' : $PKG_CONFIG_PATH }"
+      },
+      "Z_LIB_PATH": {
+        "val": "#{self.lib}",
+        "scope": "global"
       }
     },
     "buildEnv": {
-      "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }"
+      "CHOST": "#{os == 'windows' ? 'x86_64-w64-mingw32': '' }",
+      "CFLAGS": "-fPIC -O2"
     },
     "buildsInSource": true,
     "build": [
-      ["bash", "-c", "#{os == 'windows' ? './configure --prefix=$cur__install --uname=cygwin': './configure --prefix=$cur__install' }"],
+      [
+        "bash",
+        "-c",
+        "./configure --prefix=$cur__install #{os == 'windows' ? '--uname=cygwin' : ''}"
+      ],
       "make",
       "make test"
     ],
